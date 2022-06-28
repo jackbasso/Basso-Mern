@@ -16,7 +16,7 @@ router.delete('/delete/:id', (req, res) => {
   res.send("Yo elimino la orden");
 });
 //GET
-router.get('/:id', (req, res) => {
+router.get('/get/:id', (req, res) => {
   res.send("Yo traigo la orden");
 });
 //GET ALL
