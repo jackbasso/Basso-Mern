@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
   removed: {
     type: Boolean,
     default: false,
@@ -9,73 +9,80 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  name: {
+  company: {
     type: String,
     trim: true,
     required: true,
   },
-  surname: {
+  contactName: {
     type: String,
     trim: true,
     required: true,
   },
-  birthday: {
-    type: Date,
+  contactLastName: {
+    type: String,
+    trim: true,
     required: true,
   },
-  birthplace: {
-    type: String,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  photo: {
+  bankAccount: {
     type: String,
     trim: true,
   },
-  department: {
+  
+  companyTaxNumber: {
     type: String,
-    required: true,
+    trim: true,
   },
-  position: {
+  companyTaxID: {
     type: String,
-    required: true,
+    trim: true,
   },
+  customField: [
+    {
+      fieldName: {
+        type: String,
+        trim: true,
+      },
+      fieldValue: {
+        type: String,
+        trim: true,
+      },
+    },
+  ],
   address: {
     type: String,
     trim: true,
   },
-  state: {
+  country: {
     type: String,
+    trim: true,
   },
   phone: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  fax: {
+    type: String,
+    trim: true,
+  },
+  cell: {
     type: String,
     trim: true,
   },
   email: {
     type: String,
     trim: true,
+    lowercase: true,
   },
-  urgentContact: {
+  website: {
     type: String,
     trim: true,
-  },
-  status: {
-    type: String,
-    default: '1',
   },
   created: {
     type: Date,
     default: Date.now,
   },
 });
-employeeSchema.plugin(require('mongoose-autopopulate'));
-employeeSchema.index({
-  name: 'text',
-  surname: 'text',
-  birthday: 'text',
-  status: 'text',
-});
 
-module.exports = mongoose.model('User', employeeSchema);
+module.exports = mongoose.model('Client', clientSchema);
