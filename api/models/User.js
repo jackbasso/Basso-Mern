@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  enabled: {
+  isActive: {
     type: Boolean,
     default: true,
   },
@@ -22,9 +22,6 @@ const userSchema = new mongoose.Schema({
   birthday: {
     type: Date,
     required: true,
-  },
-  birthplace: {
-    type: String,
   },
   gender: {
     type: String,
@@ -69,13 +66,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
-employeeSchema.plugin(require('mongoose-autopopulate'));
-employeeSchema.index({
-  name: 'text',
-  surname: 'text',
-  birthday: 'text',
-  status: 'text',
+  note: {
+    type: String,
+    trim: true,
+  },
 });
 
-module.exports = mongoose.model('User', employeeSchema);
+module.exports = mongoose.model('User', userSchema);

@@ -5,7 +5,7 @@ const clientSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  enabled: {
+  isActive: {
     type: Boolean,
     default: true,
   },
@@ -24,16 +24,11 @@ const clientSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  bankAccount: {
+  companyRegNumber: {
     type: String,
     trim: true,
   },
-  
   companyTaxNumber: {
-    type: String,
-    trim: true,
-  },
-  companyTaxID: {
     type: String,
     trim: true,
   },
@@ -57,18 +52,14 @@ const clientSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  city: {
+    type: String,
+    trim: true,
+  },
   phone: {
     type: String,
     trim: true,
     required: true,
-  },
-  fax: {
-    type: String,
-    trim: true,
-  },
-  cell: {
-    type: String,
-    trim: true,
   },
   email: {
     type: String,
@@ -76,6 +67,10 @@ const clientSchema = new mongoose.Schema({
     lowercase: true,
   },
   website: {
+    type: String,
+    trim: true,
+  },
+  note: {
     type: String,
     trim: true,
   },
